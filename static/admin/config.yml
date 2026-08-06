@@ -1,0 +1,79 @@
+# Sveltia CMS configuration — edit content at musroek.com/admin/
+backend:
+  name: github
+  repo: OWNER/musroek   # ← set to your GitHub username/repo at deploy time
+  branch: main
+  # auth via sveltia-cms-auth worker — base_url set at deploy time
+  # base_url: https://sveltia-cms-auth.YOUR-SUBDOMAIN.workers.dev
+
+media_folder: static/images/works
+public_folder: /images/works
+
+site_url: https://www.musroek.com
+
+collections:
+  - name: works
+    label: Works
+    label_singular: Work
+    folder: content/works
+    extension: json
+    format: json
+    create: true
+    identifier_field: title
+    slug: "{{fields.slug}}"
+    summary: "{{title}} ({{year}})"
+    sortable_fields: [year, title, collection]
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: slug, label: "URL slug", widget: string, hint: "lowercase-with-dashes, e.g. the-king-is-lonely" }
+      - name: collection
+        label: Collection
+        widget: select
+        options: [{ label: "Mus", value: mus }, { label: "Roek", value: roek }]
+      - { name: year, label: Year, widget: string, required: false }
+      - { name: materials, label: Materials, widget: string, required: false }
+      - { name: dimensions, label: Dimensions, widget: string, required: false }
+      - { name: price, label: Price, widget: string, required: false, hint: "e.g. €450 or 'Price on request'" }
+      - name: availability
+        label: Availability
+        widget: select
+        options: [{ label: "Available", value: available }, { label: "Sold", value: sold }]
+        default: available
+      - { name: image, label: Image, widget: image }
+      - { name: description, label: Description, widget: text, required: false }
+
+  - name: pages
+    label: Pages
+    files:
+      - name: manifesto
+        label: Manifesto
+        file: content/pages/manifesto.json
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: body, label: Text, widget: text }
+      - name: mus
+        label: "Mus — intro"
+        file: content/pages/mus.json
+        fields:
+          - { name: intro, label: Introduction, widget: text, required: false }
+      - name: roek
+        label: "Roek — intro"
+        file: content/pages/roek.json
+        fields:
+          - { name: intro, label: Introduction, widget: text, required: false }
+
+  - name: settings
+    label: Site settings
+    files:
+      - name: settings
+        label: General
+        file: content/settings.json
+        fields:
+          - { name: title, label: "Site title", widget: string }
+          - { name: artist, label: "Artist name", widget: string }
+          - { name: location, label: Location, widget: string }
+          - { name: email, label: "Contact email", widget: string }
+          - { name: instagram_url, label: "Instagram URL", widget: string }
+          - { name: description, label: "SEO description", widget: text }
+          - { name: featured_work, label: "Featured work (slug shown on homepage)", widget: string }
+          - { name: intro, label: "Homepage introduction", widget: text }
