@@ -1,8 +1,8 @@
 {
-  "slug": "the-king-is-lonely",
-  "title": "The King is Lonely",
+  "slug": "limited-time-only",
+  "title": "limited time only",
   "collection": "mus",
-  "year": "2026",
+  "year": "2023",
   "materials": "Ink on paper",
   "price": "",
   "forSale": false,
@@ -11,6 +11,6 @@
   "description": "",
   "dimensions": "",
   "availability": "available",
-  "image": "/images/works/the-king-is-lonely.jpg",
+  "image": "/images/works/limited-time-only.jpg",
   "walk": 1
 }

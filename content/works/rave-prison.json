@@ -3,10 +3,14 @@
   "title": "Rave Prison",
   "collection": "mus",
   "year": "2026",
-  "materials": "Fineliner on paper",
+  "materials": "Ink on paper",
+  "price": "",
+  "forSale": false,
+  "notForSaleNote": "Not for sale — see the Shop for available works.",
+  "titleNote": "",
+  "description": "",
   "dimensions": "",
-  "price": "Price on request",
   "availability": "available",
   "image": "/images/works/rave-prison.jpg",
-  "description": ""
+  "walk": 1
 }

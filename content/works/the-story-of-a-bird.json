@@ -1,8 +1,8 @@
 {
-  "slug": "the-king-is-lonely",
-  "title": "The King is Lonely",
+  "slug": "the-story-of-a-bird",
+  "title": "the story of a bird",
   "collection": "mus",
-  "year": "2026",
+  "year": "2020",
   "materials": "Ink on paper",
   "price": "",
   "forSale": false,
@@ -11,6 +11,6 @@
   "description": "",
   "dimensions": "",
   "availability": "available",
-  "image": "/images/works/the-king-is-lonely.jpg",
-  "walk": 1
+  "image": "/images/works/the-story-of-a-bird.jpg",
+  "walk": 2
 }

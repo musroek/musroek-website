@@ -3,10 +3,13 @@
   "title": "Many Birds",
   "collection": "roek",
   "year": "2025",
-  "materials": "Print, A3",
+  "materials": "Digital image",
+  "price": "",
+  "forSale": false,
+  "notForSaleNote": "Digital image — not for sale.",
+  "description": "",
   "dimensions": "",
-  "price": "Price on request",
   "availability": "available",
   "image": "/images/works/many-birds.jpg",
-  "description": ""
+  "walk": 2
 }
