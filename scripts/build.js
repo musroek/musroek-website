@@ -105,13 +105,22 @@ ${body}
   },{passive:false});
 })();
 (function(){
-  var els=document.querySelectorAll('.drift,.stage,.work-card,.find,.perch');
+  var els=[].slice.call(document.querySelectorAll('.drift,.stage,.work-card,.find,.perch'));
   if(!('IntersectionObserver' in window)||!els.length) return;
-  els.forEach(function(el){el.classList.add('reveal');});
+  function show(el){ el.classList.add('is-in'); }
+  // anything already on screen is shown at once — the top of the page is never blank
+  var fold=window.innerHeight*1.2;
+  els.forEach(function(el){
+    if(el.getBoundingClientRect().top < fold) { el.classList.add('reveal','is-in'); }
+    else el.classList.add('reveal');
+  });
   var io=new IntersectionObserver(function(es){es.forEach(function(e){
-    if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}})},
-    {rootMargin:'0px 0px -8% 0px',threshold:0.05});
-  els.forEach(function(el){io.observe(el);});
+    if(e.isIntersecting){ show(e.target); io.unobserve(e.target); }})},
+    {rootMargin:'200px 0px 200px 0px',threshold:0});
+  els.forEach(function(el){ if(!el.classList.contains('is-in')) io.observe(el); });
+  // failsafe: whatever happens — slow images, odd browser — nothing stays hidden
+  setTimeout(function(){ els.forEach(show); }, 2500);
+  window.addEventListener('load',function(){ setTimeout(function(){ els.forEach(show); },400); });
 })();
 </script>
 </body>
